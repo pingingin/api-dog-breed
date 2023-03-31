@@ -62,8 +62,6 @@ def predict_breed(img_path):
                         ]).predict(bottleneck_feature).reshape(1, 1, 1, 2048)
     # obtain predicted vector
     predicted_vector = Resnet50_model.predict(bottleneck_feature)
-    del bottleneck_feature
-    del Resnet50_model
     # return dog breed that is predicted by the model
     return label_to_cat[str(np.argmax(predicted_vector))]
 
